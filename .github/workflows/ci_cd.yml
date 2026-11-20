@@ -10,11 +10,11 @@ jobs:
   build:
     services:
       postgres:
-        image: postgres:18
+        image: postgis/postgis:18-3.6
         env:
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
-          POSTGRES_DB: sistemametodosageis
+          POSTGRES_DB: padaria
         ports:
           - 5432:5432
         options: >-
@@ -22,7 +22,9 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+
     runs-on: ubuntu-latest
+
     steps:
       - name: Baixar Código
         uses: actions/checkout@v4
